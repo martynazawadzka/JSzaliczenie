@@ -105,7 +105,7 @@ const checkIfFlush = cards => {
 
 const checkIfStreigh = () => {
   let prevValue = sortedCards[0].value;
-  if (sortedCards[4].value === 13) {
+  if (sortedCards[4].value === 13 && prevValue === 1) {
     //obsługa gdy as został posortowany jako najniższa karta
     prevValue = 9;
   }
@@ -121,6 +121,7 @@ const checkIfStreigh = () => {
 const checkIfThreeOfAKind = () => {
   if (
     sortedCards[0].value === sortedCards[2].value ||
+    sortedCards[1].value === sortedCards[3].value ||
     sortedCards[2].value === sortedCards[4].value
   ) {
     return 'Three of a kind';
